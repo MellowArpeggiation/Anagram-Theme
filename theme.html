@@ -119,13 +119,7 @@
             // Don't forget trailing slash!
         	var imageLocation = "https://bf93433f972a5c5b9dcd92ff00e40c3e64683a0b.googledrive.com/host/0B-W0tG4VFD0sT2V6WWlWQVFqVXM/svg/";
             
-            // *Not yet implemented*
-            // Set to cycle through the first two and randomly show the rest according to alternateAnagramChance
-        	var alternateAnagramChance = 0.45;
-            
             // --------------------------------------
-            
-            //TODO: Implement random anagram cycle
             
             function arrangeAsString(nameString, animDuration) {
             	if ($("#anword").length == 0) {
@@ -230,20 +224,8 @@
             	arrangeAsString(words[1], animationDuration);
             	animateCounter++;
             	
-            /*	
-            	if (randomArrange(animateCounter)) {
-            		animateCounter++;
-            	}
-            */
-            	
             	setTimeout(function() {arrangeAsString(words[0], animationDuration)}, arrangeRate * animateCounter);
             	animateCounter++;
-            	
-            /*	
-            	if (randomArrange(animateCounter)) {
-            		animateCounter++;
-            	}
-            */
             	
             	setTimeout(rearrangeLoop, arrangeRate * animateCounter);
             }
@@ -266,15 +248,6 @@
             	arrangeAsString(words[0], 1);
             	setTimeout(rearrangeLoop, arrangeRate - animationDuration);
             });
-            
-            function getRandomInt (min, max) {
-            	return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-            
-            function randomArrange (animateCounter) {
-            	setTimeout(function() {arrangeAsString(words[2], animationDuration)}, arrangeRate * animateCounter);
-            	return true;
-            }
 		</script>
 		
 		<!-- Anagrammer styling / font kerning adjustments -->
