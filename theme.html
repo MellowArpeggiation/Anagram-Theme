@@ -239,6 +239,10 @@
             		character = document.createElement("img");
             		character.src = imageLocation + (words[0])[i] + fileFormat;
             		$(preload).append(character);
+					
+					$(character).on("load", function () {
+						console.log("loaded image");
+					});
             	}
             }
             
@@ -246,9 +250,6 @@
             	arrangeAsString(words[1], 1);
             	arrangeAsString(words[0], 1);
             	setTimeout(rearrangeLoop, arrangeRate - animationDuration);
-				if (typeof anagramLoaded == "function") {
-					anagramLoaded();
-				}
             });
 		</script>
 		
@@ -337,7 +338,6 @@
                     numImages = $("#anagram img").length;
                 
                 $("#anagram img").on("load", function () {
-                    console.log("loaded");
                     currentLoaded++;
                     if (currentLoaded === numImages) {
                         console.log("all loaded");
@@ -350,10 +350,6 @@
                     $("#loading-spinner").css("display", "none");
                 }
             });
-			
-			function anagramLoaded() {
-				console.log("anagram layout loaded, waiting for images");
-			}
 		</script>
 		
 		<style>
@@ -601,7 +597,7 @@
                 padding-left: 0px;
                 padding-right: 0px;
                 
-                height: calc(50vh + 24vw - 100px);
+                height: calc(50vh + 24vw - 80px);
                 margin-top: calc(50vh - 24vw);
             }
             
@@ -640,7 +636,7 @@
             @media (max-width:767px) and (orientation: portrait) {
                 /* Accommodate the profile image */
             	.jumbotron {
-            	    height: calc(50vh + 24vw + 20px);
+            	    height: calc(50vh + 24vw + 40px);
             	    margin-top: calc(50vh - 24vw - 120px);
             	}
             }
