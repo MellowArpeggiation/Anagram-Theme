@@ -246,6 +246,9 @@
             	arrangeAsString(words[1], 1);
             	arrangeAsString(words[0], 1);
             	setTimeout(rearrangeLoop, arrangeRate - animationDuration);
+				if (typeof anagramLoaded == "function") {
+					anagramLoaded();
+				}
             });
 		</script>
 		
@@ -347,6 +350,10 @@
                     $("#loading-spinner").css("display", "none");
                 }
             });
+			
+			function anagramLoaded() {
+				console.log("anagram layout loaded, waiting for images");
+			}
 		</script>
 		
 		<style>
