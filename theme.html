@@ -612,7 +612,7 @@
             
             
             
-            #subtitle>small {
+            #subtitle {
                 color: {color:Subtitle};
             } 
             
@@ -868,7 +868,6 @@
 							<li class="hidden-sm avatar-hint" style="width:128px"><img class="img-{AvatarShape} img-brand-md img-avatar" src="{PortraitURL-128}"></li>
 							<li class="visible-sm" style="width:64px"><img class="img-{AvatarShape} img-brand-sm img-avatar" src="{PortraitURL-64}"></li>
 							{block:Description}
-							    
 							    <li class="hidden-sm"><span class="desc-box">{Description}</span></li>
 							{/block:Description}
 						</ul>
@@ -883,8 +882,15 @@
 			<div class="jumbotron text-center">
 				<div class="container-fluid" id="front-page-container" style="display: none;">
 					<div id="anagram"></div>
-					<em class="h2" id="subtitle"></em>
-					<script>document.getElementById("subtitle").innerHTML = "<small>" + getRandomSubtitle() + "</small>";</script>
+                    <em class="h2"><small id="subtitle">
+                        {block:DayPage}All posts on {DayOfMonth}{DayOfMonthSuffix} {Month}, {Year}{/block:DayPage}
+                        {block:TagPage}All posts tagged with "{Tag}"{/block:TagPage}
+                    </small></em>
+					<script>
+					    if ($("#subtitle").html().trim() == "") {
+					        $("#subtitle").html(getRandomSubtitle());
+					    }
+					</script>
 					{block:ShowAvatar}
 						<img class="img-{AvatarShape} visible-xs center-block top-space img-avatar" src="{PortraitURL-128}">
 					{/block:ShowAvatar}
