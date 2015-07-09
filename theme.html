@@ -358,6 +358,11 @@
 		</script>
 		
 		<style>
+		    html {
+		        position: relative;
+		        min-height: 100%;
+		    }
+		    
 		    /* Fonts */
 		    body {
 		        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -366,6 +371,13 @@
 		    
 		    nav, .navbar, footer {
 		        font-family: {font:Navigation};
+		    }
+		    
+		    footer {
+		        position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 40px;
 		    }
 		    
 		    h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
@@ -573,6 +585,7 @@
                 background-color: {BackgroundColor};
                 padding-top: 80px;
 				overflow-x: hidden;
+				padding-bottom: 40px;
             }
             
             .bg {
@@ -697,6 +710,9 @@
                 .content-background {
                     background-image: url({image:Background});
                 }
+    		    body.non-index {
+    		        background-image: url({image:Background});
+    		    }
                 
                 .featurette {
                     margin: -30px;
@@ -816,7 +832,7 @@
 			{CustomCSS}
 		</style>
 	</head>
-	<body>
+	<body{block:PermalinkPage} class="non-index"{/block:PermalinkPage}>
 		<!-- Nav bar -->
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
@@ -920,9 +936,6 @@
 				</div>
 			</div>
 		{/block:IndexPage}
-		{block:PermalinkPage}
-		    <!--<hr class="featurette-divider">-->
-		{/block:PermalinkPage}
 		
 		<!-- Main content -->
 		<div class="content-background">
@@ -1327,11 +1340,14 @@
                         </ul>
                     </nav>
                 {/block:Pagination}
-    			<footer>
-    				<p class="pull-right"><a href="#">Back to top</a></p>
-    				<p>Copyright {CopyrightYears}<span class="hidden-xs"> | <a href="http://anagramtheme.tumblr.com">Theme</a></span></p>
-    			</footer>
+    			
     		</div>
+    		<footer>
+    		    <div class="container">
+    				<p class="pull-right"><a href="#">Back to top</a></p>
+    				<p>Copyright {CopyrightYears}<span class="hidden-xs"> | <a href="https://www.tumblr.com/theme/39927">Theme</a></span></p>
+    			</div>
+			</footer>
 		</div>
 	</body>
 </html>
