@@ -264,10 +264,6 @@
 					anagramLoaded();
 				}
 			}
-            
-            $(preload).ready(function() {
-            	
-            });
 		</script>
 		
 		<!-- Anagrammer styling / font kerning adjustments -->
@@ -527,6 +523,10 @@
             .featurette-content {
                 margin: auto 0px;
             }
+			
+			.photoset-xs, .photoset-sm, .photoset-md {
+				overflow: hidden;
+			}
             
             .header-color {
                 background-color: {color:Header};
@@ -1003,9 +1003,9 @@
                     
                     {block:Photoset}
                         <div class="featurette">
-                        	<div class="featurette-image hidden-xs hidden-sm alternate-side">{Photoset-500}</div>
-                        	<div class="visible-sm pull-right text-center">{Photoset-400}</div>
-                        	<div class="visible-xs text-center">{Photoset-250}</div>
+                        	<div class="featurette-image hidden-xs hidden-sm alternate-side photoset-md img-square">{Photoset-500}</div>
+                        	<div class="visible-sm pull-right photoset-sm img-square">{Photoset-400}</div>
+                        	<div class="visible-xs text-center photoset-xs">{Photoset-250}</div>
                         	
                         	<div class="featurette-content">
                             	{block:RebloggedFrom}
@@ -1071,7 +1071,7 @@
                     
                     {block:Link}
                         <div class="featurette">
-                            <a href="{URL}">
+                            <a href="{URL}" {Target}>
         						<img class="featurette-image link img-circle hidden-xs hidden-sm alternate-side img-md accent-bg" src="{Thumbnail}"/>
         						<img class="featurette-image link img-circle visible-sm pull-right img-sm accent-bg" src="{Thumbnail}"/>
     						</a>
