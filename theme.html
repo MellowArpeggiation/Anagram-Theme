@@ -254,10 +254,14 @@
 					});
             	}
             }
+            
+            $(preload).ready(function () {
+                // Pre arrange to prevent weird pop in
+                arrangeAsString(words[1], 1);
+            	arrangeAsString(words[0], 1);
+            })
 			
 			function beginAnagrammer() {
-				arrangeAsString(words[1], 1);
-            	arrangeAsString(words[0], 1);
             	setTimeout(rearrangeLoop, arrangeRate - animationDuration);
 				
 				if (typeof anagramLoaded == "function") {
@@ -638,6 +642,25 @@
                 animation: fa-spin 0.5s infinite steps(8);
             }
             
+            .pagination>li>a, .pagination>li>span {
+                color: {AccentColor};
+                background-color: {BackgroundColor};
+                border-color: {color:AccentText};
+            }
+            
+            .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+            .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+                background-color: {AccentColor};
+                border-color: {AccentColor};
+                color: {BackgroundColor};
+            }
+            
+            .pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus {
+                color: {color:LinkHover};
+                background-color: {BackgroundColor};
+                border-color: {color:AccentText};
+            }
+            
             @media (max-width:767px) and (orientation: portrait) {
                 /* Accommodate the profile image */
             	.jumbotron {
@@ -923,7 +946,6 @@
         				            {/block:RebloggedFrom}
         			            </h2>
         						<p>{Body}</p>
-        						
         						{block:Date}
         			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
                                 {/block:Date}
@@ -1278,15 +1300,32 @@
     				{/block:Answer}
     			{/block:posts}
     			{block:Pagination}
-    			    <div class="text-center page-buttons">
-    			        {block:PreviousPage}
-    			            <a href="{PreviousPage}"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                        {/block:PreviousPage}
-                        {CurrentPage} / {TotalPages}
-                        {block:NextPage}
-                            <a href="{NextPage}"><span class="glyphicon glyphicon-chevron-right"></span></a>
-                        {/block:NextPage}
-    			    </div>
+                    <nav class="text-center">
+                        <ul class="pagination">
+                            {block:PreviousPage}
+                                <li>
+                                    <a href="{PreviousPage}" aria-label="Previous">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                </li>
+                            {/block:PreviousPage}
+                            {block:JumpPagination length="5"}
+                                {block:CurrentPage}
+                                    <li class="active"><a href="#">{PageNumber}</a></li>
+                                {/block:CurrentPage}
+                                {block:JumpPage}
+                                    <li><a href="{URL}">{PageNumber}</a></li>
+                                {/block:JumpPage}
+                            {/block:JumpPagination}
+                            {block:NextPage}
+                                <li>
+                                    <a href="{NextPage}" aria-label="Next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </li>
+                            {/block:NextPage}
+                        </ul>
+                    </nav>
                 {/block:Pagination}
     			<footer>
     				<p class="pull-right"><a href="#">Back to top</a></p>
