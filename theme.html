@@ -230,26 +230,43 @@
             	setTimeout(rearrangeLoop, arrangeRate * animateCounter);
             }
             
+			var numCharacters = 0,
+				charactersLoaded = 0;
             var preload = document.createElement("div");
             $(preload).hide();
             for (var i = 0; i < words[0].length; i++) {
             	if ((words[0])[i] == ' ') {
             		continue;
             	} else {
+					numCharacters++;
+					
             		character = document.createElement("img");
             		character.src = imageLocation + (words[0])[i] + fileFormat;
             		$(preload).append(character);
 					
 					$(character).on("load", function () {
+						charactersLoaded++;
 						console.log("loaded image");
+						if (charactersLoaded >= numCharacters) {
+							console.log("all images loaded");
+							beginAnagrammer();
+						}
 					});
             	}
             }
-            
-            $(preload).ready(function() {
-            	arrangeAsString(words[1], 1);
+			
+			function beginAnagrammer() {
+				arrangeAsString(words[1], 1);
             	arrangeAsString(words[0], 1);
             	setTimeout(rearrangeLoop, arrangeRate - animationDuration);
+				
+				if (typeof anagramLoaded == "function") {
+					anagramLoaded();
+				}
+			}
+            
+            $(preload).ready(function() {
+            	
             });
 		</script>
 		
@@ -333,23 +350,11 @@
                 return "\"" + subtitles[Math.floor(Math.random() * subtitles.length)] + "\"";
             }
             
-            $(document).ready(function () {
-                var currentLoaded = 0,
-                    numImages = $("#anagram img").length;
-                
-                $("#anagram img").on("load", function () {
-                    currentLoaded++;
-                    if (currentLoaded === numImages) {
-                        console.log("all loaded");
-                        removeSpinner();
-                    }
-                })
-                
-                function removeSpinner() {
-                    $("#front-page-container").css("display", "block");
-                    $("#loading-spinner").css("display", "none");
-                }
-            });
+			function anagramLoaded() {
+				// Remove the spinner and display the anagram
+				$("#front-page-container").css("display", "block");
+				$("#loading-spinner").css("display", "none");
+			}
 		</script>
 		
 		<style>
