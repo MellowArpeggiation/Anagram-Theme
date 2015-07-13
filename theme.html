@@ -539,6 +539,10 @@
             .featurette-content {
                 margin: auto 0px;
             }
+            
+            .featurette-content ul {
+                display: inline-block;
+            }
 			
 			.photoset-xs, .photoset-sm, .photoset-md {
 				overflow: hidden;
@@ -792,6 +796,38 @@
                 animation: avatar-hint-bulge 0.5s ease-in-out 3s 1;
             }
             
+            /* Photoset fixes */
+            
+            @media (max-width:767px) {
+                .photoset {
+                    float: none !important;
+                }
+            }
+            
+            @media (min-width:768px) {
+                .photoset {
+                    width: 400px;
+                    border-radius: 15px;
+                    margin-bottom: 4px;
+                    margin-top: 0;
+                }
+                
+                .photoset.pull-left {
+                    margin-right: 40px;
+                }
+                
+                .photoset.pull-right {
+                    margin-left: 40px;
+                }
+            }
+            
+            @media (min-width:992px) {
+                .photoset {
+                    width: 500px;
+                }
+            }
+            
+            
             /* Reblog and Like overlays */
             
             
@@ -980,7 +1016,7 @@
                         <div class="featurette">
                             {LinkOpenTag}
                             	<img class="featurette-image hidden-xs hidden-sm alternate-side img-md img-square" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                            	<img class="visible-sm photo-sm pull-right img-square" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                            	<img class="featurette-image visible-sm photo-sm pull-right img-square" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
                             	<img class="visible-xs img-xs" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
                         	{LinkCloseTag}
                         	
@@ -1044,9 +1080,13 @@
                     
                     {block:Photoset}
                         <div class="featurette">
+                            <!--
                         	<div class="featurette-image hidden-xs hidden-sm alternate-side photoset-md img-square">{Photoset-500}</div>
-                        	<div class="visible-sm pull-right photoset-sm img-square">{Photoset-400}</div>
+                        	<div class="featurette-image visible-sm pull-right photoset-sm img-square">{Photoset-400}</div>
                         	<div class="visible-xs text-center photoset-xs">{Photoset-250}</div>
+                        	-->
+                        	
+                        	<div class="photoset alternate-side">{Photoset}</div>
                         	
                         	<div class="featurette-content">
                             	{block:RebloggedFrom}
@@ -1113,8 +1153,8 @@
                     {block:Link}
                         <div class="featurette">
                             <a href="{URL}" {Target}>
-        						<img class="featurette-image link img-circle hidden-xs hidden-sm alternate-side img-md accent-bg" src="{Thumbnail}"/>
-        						<img class="featurette-image link img-circle visible-sm pull-right img-sm accent-bg" src="{Thumbnail}"/>
+        						<img class="featurette-image link img-circle hidden-xs hidden-sm alternate-side img-md accent-bg" {block:Thumbnail}src="{Thumbnail}"{/block:Thumbnail}/>
+        						<img class="featurette-image link img-circle visible-sm pull-right img-sm accent-bg" {block:Thumbnail}src="{Thumbnail}"{/block:Thumbnail}/>
     						</a>
     						<div class="featurette-content">
         						<h2 class="featurette-heading">
