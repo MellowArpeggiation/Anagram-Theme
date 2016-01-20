@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-	Copyright 2012-2015 George Paton
-    TODO: 
-        * Make navbar less bootstrap generic
-            * Add transparency
-            * Fade in when scrolling down to prevent ugly overlaps
-            * Check end of main style tag, most of the work already done
-        * Overlay Like and Reblog buttons over posts
-            * When mousing over placeholder or image, fade out and show
-                * Like
-                * Reblog
-                * Link to post
-            * Use glyphs not text
-        * OR Like and Reblog in a bottom aligned very short footer (separate from content footer)
-        * Force content footer to align to bottom in pages less than full height
-	
-					     e    e                888 888                                                                
-					    d8b  d8b      e88~~8e  888 888  e88~-_  Y88b    e    /                                        
-					   d888bdY88b    d888  88b 888 888 d888   i  Y88b  d8b  /                                         
-					  / Y88Y Y888b   8888__888 888 888 8888   |   Y888/Y88b/                                          
-					 /   YY   Y888b  Y888    , 888 888 Y888   '    Y8/  Y8/                                           
-					/          Y888b  "88___/  888 888  "88_-~      Y    Y                                            
-                                                                                                  
-     e                                       /       / ,e,             d8   ,e,                   
-    d8b     888-~\ 888-~88e   e88~~8e  e88~88e e88~88e  "    /~~~8e  _d88__  "   e88~-_  888-~88e 
-   /Y88b    888    888  888b d888  88b 888 888 888 888 888       88b  888   888 d888   i 888  888 
-  /  Y88b   888    888  8888 8888__888 "88_88" "88_88" 888  e88~-888  888   888 8888   | 888  888 
- /____Y88b  888    888  888P Y888    ,  /       /      888 C888  888  888   888 Y888   ' 888  888 
-/      Y88b 888    888-_88"   "88___/  Cb      Cb      888  "88_-888  "88_/ 888  "88_-~  888  888 
-                   888                  Y8""8D  Y8""8D                                            
--->
+	<!--
+		Copyright 2012-2015 George Paton
+		TODO: 
+			* Make navbar less bootstrap generic
+				* Add transparency
+				* Fade in when scrolling down to prevent ugly overlaps
+				* Check end of main style tag, most of the work already done
+			* Overlay Like and Reblog buttons over posts
+				* When mousing over placeholder or image, fade out and show
+					* Like
+					* Reblog
+					* Link to post
+				* Use glyphs not text
+			* OR Like and Reblog in a bottom aligned very short footer (separate from content footer)
+			* Force content footer to align to bottom in pages less than full height
+
+							 e    e                888 888                                                                
+							d8b  d8b      e88~~8e  888 888  e88~-_  Y88b    e    /                                        
+						   d888bdY88b    d888  88b 888 888 d888   i  Y88b  d8b  /                                         
+						  / Y88Y Y888b   8888__888 888 888 8888   |   Y888/Y88b/                                          
+						 /   YY   Y888b  Y888    , 888 888 Y888   '    Y8/  Y8/                                           
+						/          Y888b  "88___/  888 888  "88_-~      Y    Y                                            
+
+		 e                                       /       / ,e,             d8   ,e,                   
+		d8b     888-~\ 888-~88e   e88~~8e  e88~88e e88~88e  "    /~~~8e  _d88__  "   e88~-_  888-~88e 
+	   /Y88b    888    888  888b d888  88b 888 888 888 888 888       88b  888   888 d888   i 888  888 
+	  /  Y88b   888    888  8888 8888__888 "88_88" "88_88" 888  e88~-888  888   888 8888   | 888  888 
+	 /____Y88b  888    888  888P Y888    ,  /       /      888 C888  888  888   888 Y888   ' 888  888 
+	/      Y88b 888    888-_88"   "88___/  Cb      Cb      888  "88_-888  "88_/ 888  "88_-~  888  888 
+					   888                  Y8""8D  Y8""8D                                            
+	-->
 	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
 		<title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
 		
 		<link rel="shortcut icon" href="{Favicon}">
@@ -39,7 +43,6 @@
         {block:Description}
             <meta name="description" content="{MetaDescription}" />
         {/block:Description}
-        
         
         <meta name="image:Background" content=""/>
         
@@ -70,15 +73,11 @@
         <meta name="font:Headings" content="Futura"/>
         
 		
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
 		<!-- Font Awesome -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		
 		<!-- Roboto -->
-		<link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,400italic,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,400italic,700">
 		
 		<!-- jQuery -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -94,211 +93,14 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		
-		<!-- Custom code -->
+		<!-- Anagrammer.js -->
+		<script src="//raw.githubusercontent.com/MellowArpeggiation/Anagrammer.js/master/anagrammer.js"></script>
+		<link rel="stylesheet" href="//raw.githubusercontent.com/MellowArpeggiation/Anagrammer.js/master/anagrammer.css">
 		<script>
-		    // --------------------------------------
-            //   Copyright 2012-2015 George Paton
-            //   Anagrammer.js, requires jQuery 1.11+
-            // --------------------------------------
-            
-            // * User variables *
-            
-            // How many seconds between rearranges
-        	var arrangeRate = 8000;
-            // How long the animation lasts
-        	var animationDuration = 3000;
-        	var animationSegmentDuration = 100;
-            
-            // Ensure that the words are true anagrams
-            // Also ensure that all the letters have images associated
         	var words = ["{text:FirstAnagramWord}", "{text:SecondAnagramWord}"];
-        	
-        	var fileFormat = ".svg";
             
-            // Location where the images are stored, letters must be in the format "a.svg" and within the first level
-            // Don't forget trailing slash!
-        	var imageLocation = "https://bf93433f972a5c5b9dcd92ff00e40c3e64683a0b.googledrive.com/host/0B-W0tG4VFD0sT2V6WWlWQVFqVXM/svg/";
-            
-            // --------------------------------------
-            
-            function arrangeAsString(nameString, animDuration) {
-            	if ($("#anword").length == 0) {
-            		anword = document.createElement("div");
-            		anword.id = "anword";
-            		
-            		dummy = document.createElement("div");
-            		dummy.id = "dummy";
-            		
-            		$("#anagram").append(anword);
-            		$("#anagram").append(dummy);
-            		
-            		var spaces = 0;
-            		for (var i = 0; i < nameString.length; i++) {
-            			if (nameString[i] == ' ') {
-            				lBreak = document.createElement("br");
-            				$("#anword").append(lBreak);
-            				spaces++
-            			} else {
-            				character = document.createElement("img");
-            				character.src = imageLocation + nameString[i] + fileFormat;
-            				$(character).addClass(nameString[i]);
-            				$(character).addClass("anchar");
-            				$(character).attr("index", i-spaces);
-            				$("#anword").append(character);
-            			}
-            		}
-            	} else {
-            		console.log("Rearranging as " + nameString + "...");
-            		
-            		$("#dummy").empty();
-            		
-            		$("#anword *").clone().appendTo($("#dummy"));
-            		var offset = ($("#anword").offset());
-            		$("#dummy").css("position", "absolute")
-            			.css("left", 0)
-            			.css("top", 0);
-            		
-            		var oldOffsets = new Array();
-            		$("#dummy img").each(function(i) {
-            			oldOffsets[i] = $($("#anword img")[i]).offset();
-            			$(this).css("position", "absolute")
-            				.css("left", oldOffsets[i].left)
-            				.css("top", oldOffsets[i].top);
-            		})
-            		
-            		$("#anword img").each(function(i) {
-            			$(this).attr("index", i);
-            		})
-            		
-            		var letters = $("#anword img").detach();
-            		$("#anword").empty();
-            		
-            		var newOffsets = new Array();
-            		
-            		var spaces = 0;
-            		
-            		for (var i = 0; i < nameString.length; i++) {
-            			if (nameString[i] == ' ') {
-            				lBreak = document.createElement("br");
-            				$("#anword").append(lBreak);
-            				spaces++
-            			} else {
-            				for (var j = 0; j < letters.length; j++) {
-            					if ($(letters[j]).hasClass(nameString[i])) {
-            						$("#anword").append(letters[j]);
-            						letters.splice(j, 1);
-            						break;
-            					}
-            				}
-            			}
-            		}
-            		
-            		$("#anword img").each(function(i) {
-            			newOffsets[i] = $(this).offset();
-            		})
-            		
-            		$("#anword").hide();
-            		$("#dummy").show();
-            		
-            		// Animate here
-            		var temps = new Array();
-            		for (var i = 0; i < $("#dummy img").length; i++) {
-            			var currentImage = $("#dummy img")[i];
-            			$(currentImage).animate({
-            			    left: newOffsets[$(currentImage).attr("index")].left,
-            			    top: newOffsets[$(currentImage).attr("index")].top
-            			}, {duration: animDuration, complete: finishAnimating} );
-            		}
-            	}
-            }
-            
-            function finishAnimating() {
-            	$("#anword").show();
-            	$("#dummy").hide();
-            }
-            
-            function rearrangeLoop() {
-            	// Keep track of changes for timekeeping
-            	var animateCounter = 0;
-            	
-            	arrangeAsString(words[1], animationDuration);
-            	animateCounter++;
-            	
-            	setTimeout(function() {arrangeAsString(words[0], animationDuration)}, arrangeRate * animateCounter);
-            	animateCounter++;
-            	
-            	setTimeout(rearrangeLoop, arrangeRate * animateCounter);
-            }
-            
-			var numCharacters = 0,
-				charactersLoaded = 0;
-            var preload = document.createElement("div");
-            $(preload).hide();
-            for (var i = 0; i < words[0].length; i++) {
-            	if ((words[0])[i] == ' ') {
-            		continue;
-            	} else {
-					numCharacters++;
-					
-            		character = document.createElement("img");
-            		character.src = imageLocation + (words[0])[i] + fileFormat;
-            		$(preload).append(character);
-					
-					$(character).on("load", function () {
-						charactersLoaded++;
-						console.log("loaded image");
-						if (charactersLoaded >= numCharacters) {
-							console.log("all images loaded");
-							beginAnagrammer();
-						}
-					});
-            	}
-            }
-            
-            $(preload).ready(function () {
-                // Pre arrange to prevent weird pop in
-                arrangeAsString(words[1], 1);
-            	arrangeAsString(words[0], 1);
-            })
-			
-			function beginAnagrammer() {
-            	setTimeout(rearrangeLoop, arrangeRate - animationDuration);
-				
-				if (typeof anagramLoaded == "function") {
-					anagramLoaded();
-				}
-			}
+			anagrammer();
 		</script>
-		
-		<!-- Anagrammer styling / font kerning adjustments -->
-		<style>
-		    #anagram {
-            	height: 32vw;
-            	margin-left: auto;
-                margin-right: auto;
-                width: 100%;
-            }
-            
-            .anchar {
-            	margin: 0.5vw 0.2vw;
-            	height: 9vw;
-            	width: auto; /* Required for IE10- */
-            }
-            
-            #anword {
-            	text-align: center;
-            }
-            
-            #dummy {
-                margin: -0.5vw -0.2vw;
-            	width: 99%;
-            }
-            
-            .anchar.i {
-                padding-left: 0.5vw;
-                padding-right: 0.3vw;
-            }
-		</style>
 		
 		<script>
 		    var jumboHeight;
