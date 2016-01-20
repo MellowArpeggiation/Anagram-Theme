@@ -203,6 +203,12 @@
 				.featurette {
 					background-color: {BackgroundColor};
 				}
+				
+				/* Tumblr changed z-index of dashboard buttons */
+				/* Bootstrap uses z-index of 1030 (!!) for navbars by default */
+				.navbar-fixed-top, .navbar-fixed-bottom {
+					z-index: 90 !important;
+				}
 			}
 			
 			{CustomCSS}
