@@ -16,6 +16,10 @@ footer {
 	height: 40px;
 }
 
+.text-center {
+	text-align: center;
+}
+
 /* Retweet spacing fix */
 .text-muted > .glyphicon {
 	top: 5px;
@@ -26,11 +30,6 @@ footer {
 	position: absolute;
 	left: -24px;
 	margin-top: 28px;
-}
-
-/* This is the user theme avatar */
-.img-avatar {
-	border: 4px solid white;
 }
 
 /* This is for Tumblr inline code avatars */ 

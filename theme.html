@@ -230,49 +230,6 @@
 			</div>
 		</nav>
 		<!--
-						{block:IfShowFollowMenu}
-    						<li class="dropdown">
-    							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow Me <b class="caret"></b></a>
-    							<ul class="dropdown-menu">
-    							    {block:IfEmail}
-        							    <li><a href="mailto:{text:Email}">Email me</a></li>
-        							    <li class="divider"></li>
-        							{/block:IfEmail}
-        							{block:IfLinkedIn}
-        							    <li class="dropdown-header">Professional</li>
-        								<li><a href="{text:LinkedIn}">LinkedIn</a></li>
-        								<li class="divider"></li>
-        							{/block:IfLinkedIn}
-    								<li class="dropdown-header">Personal</li>
-    								{block:IfFacebook}
-    								    <li><a href="{text:Facebook}">Facebook</a></li>
-								    {/block:IfFacebook}
-    								{block:IfTwitter}
-    								    <li><a href="{text:Twitter}">Twitter</a></li>
-    								{/block:IfTwitter}
-    							    {block:IfInstagram}
-    								    <li><a href="{text:Instagram}">Instagram</a></li>
-    								{/block:IfInstagram}
-    								{block:IfSteam}
-    								    <li><a href="{text:Steam}">Steam</a></li>
-    								{/block:IfSteam}
-    								<li class="divider"></li>
-    								<li class="dropdown-header">Creative</li>
-    								{block:IfSoundcloud}
-    								    <li><a href="{text:Soundcloud}">Soundcloud</a></li>
-    								{/block:IfSoundcloud}
-    								{block:IfItchio}
-    								    <li><a href="{text:Itchio}">itch.io</a></li>
-    								{/block:IfItchio}
-    								{block:IfVimeo}
-    							        <li><a href="{text:Vimeo}">Vimeo</a></li>
-    								{/block:IfVimeo}
-    								{block:IfYoutube}
-    								    <li><a href="{text:Youtube}">Youtube</a></li>
-    								{/block:IfYoutube}
-    							</ul>
-    						</li>
-						{/block:IfShowFollowMenu}
 					{block:ShowAvatar}
 						<ul class="nav navbar-nav navbar-right hidden-xs avatar-container">
 							<li class="hidden-sm avatar-hint" style="width:128px"><img class="img-{AvatarShape} img-brand-md img-avatar" src="{PortraitURL-128}"></li>
@@ -287,15 +244,15 @@
 		{block:IndexPage}
 		    <div class="bg"></div>
 		    <div id="loading-spinner"><i class="fa fa-spinner fa-pulse fa-4x"></i></div>
-			<div class="jumbotron text-center">
+			<div class="jumbotron">
 				<div class="container-fluid" id="front-page-container" style="display: none;">
 					<div id="anagram"></div>
-                    <em class="h2"><small id="subtitle">
+                    <span id="subtitle">
                         {block:DayPage}All posts on {DayOfMonth}{DayOfMonthSuffix} {Month}, {Year}{/block:DayPage}
                         {block:TagPage}All posts tagged with "{Tag}"{/block:TagPage}
-                    </small></em>
+                    </span>
 					{block:ShowAvatar}
-						<img class="img-{AvatarShape} visible-xs center-block top-space img-avatar" src="{PortraitURL-128}">
+						<img class="img-{AvatarShape} hidden-md-up center-block top-space img-avatar" src="{PortraitURL-128}">
 					{/block:ShowAvatar}
 				</div>
 			</div>
