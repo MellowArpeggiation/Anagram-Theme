@@ -86,7 +86,8 @@
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 		
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="http://git.arpeggi.at/Anagram-Theme/css/theme.css">
+		<link rel="stylesheet" href="//mellowarpeggiation.github.io/Anagram-Theme/css/theme.css">
+		<link rel="stylesheet" href="//mellowarpeggiation.github.io/Anagrammer.js/anagrammer.css">
 		<style>
 			/* Active content inlined */
 			
@@ -300,11 +301,6 @@
                         {block:DayPage}All posts on {DayOfMonth}{DayOfMonthSuffix} {Month}, {Year}{/block:DayPage}
                         {block:TagPage}All posts tagged with "{Tag}"{/block:TagPage}
                     </small></em>
-					<script>
-					    if ($("#subtitle").html().trim() == "") {
-					        $("#subtitle").html(getRandomSubtitle());
-					    }
-					</script>
 					{block:ShowAvatar}
 						<img class="img-{AvatarShape} visible-xs center-block top-space img-avatar" src="{PortraitURL-128}">
 					{/block:ShowAvatar}
@@ -747,8 +743,7 @@
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		
 		<!-- Anagrammer.js -->
-		<script src="http://git.arpeggi.at/Anagrammer.js/anagrammer.js"></script>
-		<link rel="stylesheet" href="http://git.arpeggi.at/Anagrammer.js/anagrammer.css">
+		<script src="//mellowarpeggiation.github.io/Anagrammer.js/anagrammer.js"></script>
 		<script>
         	var words = ["{text:FirstAnagramWord}", "{text:SecondAnagramWord}"];
             
@@ -770,6 +765,10 @@
 				})
 				
     			adjustNotes();
+				
+				if ($("#subtitle").html().trim() == "") {
+					$("#subtitle").html(getRandomSubtitle());
+				}
 			});
 			
 			function adjustNotes() {
