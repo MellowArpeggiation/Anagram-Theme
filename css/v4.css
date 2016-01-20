@@ -1,0 +1,417 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding-top: 50px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+}
+
+/* Retweet spacing fix */
+.text-muted > .glyphicon {
+	top: 5px;
+	padding-right: 0.5em;
+}
+
+.img-brand-md, .img-brand-sm {
+	position: absolute;
+	left: -24px;
+	margin-top: 28px;
+}
+
+/* This is the user theme avatar */
+.img-avatar {
+	border: 4px solid white;
+}
+
+/* This is for Tumblr inline code avatars */ 
+img.avatar {
+	margin-right: 6px;
+	margin-top: 10px;
+}
+
+.img-square, img.avatar {
+	border-radius: 15px;
+}
+
+li.note {
+	text-align: center;
+	list-style-type: none;
+	display: inline-block;
+	margin-right: 52px;
+}
+
+li.note>span {
+	font-size: 32px;
+	display: inline-block;
+	vertical-align: middle;
+	height: 32px;           /* gotta shunt it downwards to align */
+	margin-top 4px;
+}
+
+li.reblog>span {
+	margin-left: 3px;
+}
+
+li.like>span {
+	margin-right: 3px;
+}
+
+img {
+	max-width: 100%;
+}
+
+blockquote {
+	overflow: visible;
+	display: table;
+}
+
+p {
+	font-size: 17.5px;
+	overflow: hidden;
+}
+
+pre {
+	margin-top: 15px;
+	display: inline-block;
+	line-height: 1.1;
+	width: 100%;
+}
+
+.top-space {
+	margin-top: 16px;
+}
+
+.featurette-divider {
+	margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+.featurette {
+	padding-top: 0px; /* Vertically center images part 1: add padding above and below text. */
+	overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.featurette-image {
+	margin-top: 0px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+	margin-bottom:4px;
+}
+
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.featurette-image.pull-left {
+	margin-right: 40px;
+}
+.featurette-image.pull-right {
+	margin-left: 40px;
+}
+
+.featurette-image.link.img-md {
+	background-image: url(https://placeholdit.imgix.net/~text?txtsize=120&w=500&h=500&bg=0000&txtshad=5&txtclr=ffffff&txt=link);
+	height: 500px;
+}
+.featurette-image.link.img-sm {
+	background-image: url(https://placeholdit.imgix.net/~text?txtsize=80&w=300&h=300&bg=0000&txtshad=5&txtclr=ffffff&txt=link);
+	height: 300px;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+	font-size: 50px;
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+.quote-medium {
+	font-size: 40px;
+}
+
+.quote-long {
+	font-size: 30px;
+}
+
+.featurette-heading .text-muted {
+	font-size: 26px;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+	padding-left: 5px;
+	height: 32px;
+}
+
+.featurette-content {
+	margin: auto 0px;
+}
+
+.featurette-content ul {
+	display: inline-block;
+}
+
+.photoset-xs, .photoset-sm, .photoset-md {
+	overflow: hidden;
+}
+
+.page-buttons {
+	margin-bottom: 40px;
+	font-size: 28px;
+}
+
+.img-md {
+	width: 500px;
+}
+
+.img-sm {
+	width: 300px;
+}
+
+.photo-sm {
+	width: 400px;
+}
+
+.img-xs {
+	width: 100%;
+}
+
+.img-panorama {
+	width: 100%;
+}
+
+.content-background {
+	padding-top: 80px;
+	overflow-x: hidden;
+	padding-bottom: 40px;
+}
+
+.bg {
+	position: fixed;
+	width: 100%;
+	min-height: 600px;
+	height: 110vh;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.jumbotron:after {
+	-moz-box-shadow: inset 0 0 80px 0px #000;  
+	-webkit-box-shadow: inset 0 0 80px 0px #000;   
+	box-shadow: inset 0 0 80px 0px #000;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	width: 100%;
+	height: calc(100vh - 50px);
+	z-index: 2;
+	content: "";
+}
+
+.jumbotron {
+	color: white;
+	text-shadow: #333 0 1px 1px;
+	background: transparent;
+	padding-left: 0px;
+	padding-right: 0px;
+
+	height: calc(50vh + 24vw - 80px);
+	margin-top: calc(50vh - 24vw);
+}
+
+.jumbotron>em {
+	padding: 30px;
+}
+
+#loading-spinner {
+	position: absolute;
+	left: 50%;
+	top: 50vh;
+	margin-left: -40px;
+	margin-top: -13px;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 6px;
+
+	color: #fff;
+}
+
+.fa-pulse {
+	-webkit-animation: fa-spin 0.5s infinite steps(8);
+	animation: fa-spin 0.5s infinite steps(8);
+}
+
+@media (max-width:767px) and (orientation: portrait) {
+	/* Accommodate the profile image */
+	.jumbotron {
+		height: calc(50vh + 24vw + 40px);
+		margin-top: calc(50vh - 24vw - 120px);
+	}
+}
+
+@media (max-width:767px) and (orientation: landscape) {
+	.img-avatar.visible-xs {
+		display: none !important;
+	}
+}
+
+@media (max-width:767px) {
+	blockquote {
+		display: block;
+		padding: 10px 5px;
+	}
+
+	li.note {
+		display: list-item;
+	}
+}
+
+@media (min-width:768px) and (max-width:992px) {
+	blockquote {
+		display: block;
+	}
+}
+
+/* Backgrounds for desktops */
+@media (min-width:768px) {
+	.featurette {
+		margin: -30px;
+		padding: 30px;
+		border-radius: 10px;
+	}
+}
+
+.avatar-container .desc-box {
+	position: relative;
+} 
+.avatar-container .desc-box:after, .avatar-container .desc-box:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.avatar-container .desc-box:after {
+	border-color: rgba(0, 0, 0, 0);
+	border-width: 15px;
+	margin-left: -15px;
+} 
+.avatar-container .desc-box:before { 
+	border-color: rgba(0, 0, 0, 0);
+	border-width: 16px;
+	margin-left: -16px;
+}
+
+.avatar-container .desc-box {
+	font-size: 13px;
+	position: absolute;
+	left: -60px;
+	margin-top: 170px;
+	padding: 8px 20px;
+	width: 200px;
+	opacity: 0;
+	border-radius: 4px;
+	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	cursor: default;
+	display: block;
+
+	transition: opacity 0.3s, margin-top 0.3s;
+}
+
+.avatar-container:hover .desc-box, .avatar-container:active .desc-box {
+	opacity: 1;
+	margin-top: 180px;
+}
+
+
+@-webkit-keyframes avatar-hint-bulge {
+	0%      { transform: scale(1) }
+	50%     { transform: scale(1.1) }
+	100%    { transform: scale(1) }
+}
+
+@keyframes avatar-hint-bulge {
+	0%      { transform: scale(1) }
+	50%     { transform: scale(1.1) }
+	100%    { transform: scale(1) }
+}
+
+ /* All praise the shitty hacks */
+.avatar-hint .img-avatar {
+	-webkit-animation: avatar-hint-bulge 0.5s ease-in-out 3s 1;
+	animation: avatar-hint-bulge 0.5s ease-in-out 3s 1;
+}
+
+/* Photoset fixes */
+
+@media (max-width:767px) {
+	.photoset {
+		float: none !important;
+	}
+}
+
+@media (min-width:768px) {
+	.photoset {
+		width: 400px;
+		border-radius: 15px;
+		margin-bottom: 4px;
+		margin-top: 0;
+	}
+
+	.photoset.pull-left {
+		margin-right: 40px;
+	}
+
+	.photoset.pull-right {
+		margin-left: 40px;
+	}
+}
+
+@media (min-width:992px) {
+	.photoset {
+		width: 500px;
+	}
+}
+
+
+/* Reblog and Like overlays */
+
+
+/* Transparent navigation */
+/*
+.navbar-inverse {
+	background-color: transparent;
+	border: none;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #ddd;
+}
+
+.navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+	border: none;
+	background-color: transparent;
+}
+
+.navbar-collapse.collapsing, .navbar-collapse.collapse.in {
+	background-color: #222;
+}
+
+.jumbotron {
+	height: calc(50vh + 24vw - 80px);
+	margin-top: calc(50vh - 24vw);
+}
+
+.jumbotron:after {
+	top: 0px;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 2;
+	content: "";
+}*/
