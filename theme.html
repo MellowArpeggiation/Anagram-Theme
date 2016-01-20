@@ -85,6 +85,7 @@
 		
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="//mellowarpeggiation.github.io/Anagram-Theme/css/v4.css">
+		<!--<link rel="stylesheet" href="//mellowarpeggiation.github.io/Anagram-Theme/css/theme.css">-->
 		<style>
 			/* Active content inlined */
 			
@@ -207,30 +208,28 @@
 	</head>
 	<body{block:PermalinkPage} class="non-index"{/block:PermalinkPage}>
 		<!-- Nav bar -->
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="{BlogURL}">{Title}</a>
+		<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+			<button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#mainNav">
+			&#9776;
+			</button>
+			<div class="collapse navbar-toggleable-sm" id="mainNav">
+				<a class="navbar-brand" href="{BlogURL}">{Title}</a>
+				<div class="nav navbar-nav">
+					{block:HasPages}
+						{block:Pages}
+							<a class="nav-item nav-link" href="{URL}">{Label}</a>
+						{/block:Pages}
+					{/block:HasPages}
+					{block:AskEnabled}
+						<a class="nav-item nav-link" href="/ask">{AskLabel}</a>
+					{/block:AskEnabled}
+					{block:SubmissionsEnabled}
+						<a class="nav-item nav-link" href="/submit">{SubmitLabel}</a>
+					{/block:SubmissionsEnabled}
 				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						{block:HasPages}
-						    {block:Pages}
-						        <li><a href="{URL}">{Label}</a></li>
-						    {/block:Pages}
-						{/block:HasPages}
-						{block:AskEnabled}
-							<li><a href="/ask">{AskLabel}</a></li>
-						{/block:AskEnabled}
-						{block:SubmissionsEnabled}
-							<li><a href="/submit">{SubmitLabel}</a></li>
-						{/block:SubmissionsEnabled}
+			</div>
+		</nav>
+		<!--
 						{block:IfShowFollowMenu}
     						<li class="dropdown">
     							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Follow Me <b class="caret"></b></a>
@@ -274,7 +273,6 @@
     							</ul>
     						</li>
 						{/block:IfShowFollowMenu}
-					</ul>
 					{block:ShowAvatar}
 						<ul class="nav navbar-nav navbar-right hidden-xs avatar-container">
 							<li class="hidden-sm avatar-hint" style="width:128px"><img class="img-{AvatarShape} img-brand-md img-avatar" src="{PortraitURL-128}"></li>
@@ -284,9 +282,7 @@
 							{/block:Description}
 						</ul>
 					{/block:ShowAvatar}
-				</div><!--/.nav-collapse -->
-			</div>
-		</div>
+		-->
 		
 		{block:IndexPage}
 		    <div class="bg"></div>
