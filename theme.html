@@ -34,7 +34,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
 		
@@ -79,85 +79,8 @@
 		<!-- Roboto -->
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,400italic,700">
 		
-		<!-- jQuery -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		
 		<!-- Bootstrap -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		
-		<!-- Anagrammer.js -->
-		<script src="http://git.arpeggi.at/Anagrammer.js/anagrammer.js"></script>
-		<link rel="stylesheet" href="http://git.arpeggi.at/Anagrammer.js/anagrammer.css">
-		<script>
-        	var words = ["{text:FirstAnagramWord}", "{text:SecondAnagramWord}"];
-            
-			anagrammer();
-		</script>
-		
-		<script>
-		    var jumboHeight;
-		    
-			$(document).ready(function () {
-				var onRight = false;
-				$(".alternate-side").each(function(i) {
-					if (onRight) {
-						$(this).addClass("pull-right");
-					} else {
-						$(this).addClass("pull-left");
-					}
-					onRight = !onRight;
-				})
-				
-    			adjustNotes();
-			});
-			
-			function adjustNotes() {
-			    $("li.like span").each(function() {
-				    $(this).empty();
-				    $(this).html("<span class=\"glyphicon glyphicon-heart\"></span>");
-				})
-				
-				$("li.reblog span").each(function() {
-				    $(this).empty();
-				    $(this).html("<span class=\"glyphicon glyphicon-retweet\"></span>");
-				});
-				
-				$("li.original_post span").each(function() {
-				    $(this).empty();
-				    $(this).html("<span class=\"glyphicon glyphicon-pencil\"></span>");
-				});
-				
-				$("li.note div").remove();
-				$("li.note blockquote").remove();
-			};
-			
-			function tumblrNotesInserted() {
-			    adjustNotes();
-			};
-            
-            var subtitles = new Array(
-            	{text:Subtitles}
-            );
-            
-            function getRandomSubtitle()
-            {
-                return "\"" + subtitles[Math.floor(Math.random() * subtitles.length)] + "\"";
-            }
-            
-			function anagramLoaded() {
-				// Remove the spinner and display the anagram
-				$("#front-page-container").css("display", "block");
-				$("#loading-spinner").css("display", "none");
-			}
-		</script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 		
 		<style>
 		    html {
@@ -1191,5 +1114,80 @@
     			</div>
 			</footer>
 		</div>
+		<!-- Scripts -->
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		
+		<!-- Tether -->
+        <script src="https://cdn.jsdelivr.net/tether/1.1.1/tether.min.js">
+		
+		<!-- Bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+		
+		<!-- Anagrammer.js -->
+		<script src="http://git.arpeggi.at/Anagrammer.js/anagrammer.js"></script>
+		<link rel="stylesheet" href="http://git.arpeggi.at/Anagrammer.js/anagrammer.css">
+		<script>
+        	var words = ["{text:FirstAnagramWord}", "{text:SecondAnagramWord}"];
+            
+			anagrammer();
+		</script>
+		
+		<script>
+		    var jumboHeight;
+		    
+			$(document).ready(function () {
+				var onRight = false;
+				$(".alternate-side").each(function(i) {
+					if (onRight) {
+						$(this).addClass("pull-right");
+					} else {
+						$(this).addClass("pull-left");
+					}
+					onRight = !onRight;
+				})
+				
+    			adjustNotes();
+			});
+			
+			function adjustNotes() {
+			    $("li.like span").each(function() {
+				    $(this).empty();
+				    $(this).html("<span class=\"glyphicon glyphicon-heart\"></span>");
+				})
+				
+				$("li.reblog span").each(function() {
+				    $(this).empty();
+				    $(this).html("<span class=\"glyphicon glyphicon-retweet\"></span>");
+				});
+				
+				$("li.original_post span").each(function() {
+				    $(this).empty();
+				    $(this).html("<span class=\"glyphicon glyphicon-pencil\"></span>");
+				});
+				
+				$("li.note div").remove();
+				$("li.note blockquote").remove();
+			};
+			
+			function tumblrNotesInserted() {
+			    adjustNotes();
+			};
+            
+            var subtitles = new Array(
+            	{text:Subtitles}
+            );
+            
+            function getRandomSubtitle()
+            {
+                return "\"" + subtitles[Math.floor(Math.random() * subtitles.length)] + "\"";
+            }
+            
+			function anagramLoaded() {
+				// Remove the spinner and display the anagram
+				$("#front-page-container").css("display", "block");
+				$("#loading-spinner").css("display", "none");
+			}
+		</script>
 	</body>
 </html>
