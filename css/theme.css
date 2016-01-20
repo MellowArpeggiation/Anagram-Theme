@@ -266,6 +266,10 @@ pre {
 	li.note {
 		display: list-item;
 	}
+	
+	.tmblr-iframe {
+		margin-top: 52px !important;
+	}
 }
 
 @media (min-width:768px) and (max-width:992px) {
@@ -274,12 +278,16 @@ pre {
 	}
 }
 
-/* Backgrounds for desktops */
 @media (min-width:768px) {
+	/* Backgrounds for desktops */
 	.featurette {
 		margin: -30px;
 		padding: 30px;
 		border-radius: 10px;
+	}
+	
+	.navbar-fixed-top, .navbar-fixed-bottom {
+		z-index: 90 !important;
 	}
 }
 
