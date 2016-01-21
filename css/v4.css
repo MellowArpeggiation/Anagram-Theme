@@ -20,12 +20,6 @@ footer {
 	text-align: center;
 }
 
-/* Retweet spacing fix */
-.text-muted > .glyphicon {
-	top: 5px;
-	padding-right: 0.5em;
-}
-
 .img-brand-md, .img-brand-sm {
 	position: absolute;
 	left: -24px;
@@ -90,66 +84,12 @@ pre {
 	margin-top: 16px;
 }
 
-.featurette-divider {
-	margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
-.featurette {
-	padding-top: 0px; /* Vertically center images part 1: add padding above and below text. */
-	overflow: hidden; /* Vertically center images part 2: clear their floats. */
-}
-.featurette-image {
-	margin-top: 0px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
-	margin-bottom:4px;
-}
-
-/* Give some space on the sides of the floated elements so text doesn't run right into it. */
-.featurette-image.pull-left {
-	margin-right: 40px;
-}
-.featurette-image.pull-right {
-	margin-left: 40px;
-}
-
-.featurette-image.link.img-md {
-	background-image: url(https://placeholdit.imgix.net/~text?txtsize=120&w=500&h=500&bg=0000&txtshad=5&txtclr=ffffff&txt=link);
-	height: 500px;
-}
-.featurette-image.link.img-sm {
-	background-image: url(https://placeholdit.imgix.net/~text?txtsize=80&w=300&h=300&bg=0000&txtshad=5&txtclr=ffffff&txt=link);
-	height: 300px;
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-	font-size: 50px;
-	font-weight: 300;
-	line-height: 1;
-	letter-spacing: -1px;
-}
-
 .quote-medium {
 	font-size: 40px;
 }
 
 .quote-long {
 	font-size: 30px;
-}
-
-.featurette-heading .text-muted {
-	font-size: 26px;
-	white-space: nowrap;
-	overflow: hidden;
-	display: block;
-	padding-left: 5px;
-	height: 32px;
-}
-
-.featurette-content {
-	margin: auto 0px;
-}
-
-.featurette-content ul {
-	display: inline-block;
 }
 
 .photoset-xs, .photoset-sm, .photoset-md {
@@ -274,15 +214,6 @@ pre {
 	}
 }
 
-/* Backgrounds for desktops */
-@media (min-width:768px) {
-	.featurette {
-		margin: -30px;
-		padding: 30px;
-		border-radius: 10px;
-	}
-}
-
 .avatar-container .desc-box {
 	position: relative;
 } 
@@ -377,41 +308,3 @@ pre {
 		width: 500px;
 	}
 }
-
-
-/* Reblog and Like overlays */
-
-
-/* Transparent navigation */
-/*
-.navbar-inverse {
-	background-color: transparent;
-	border: none;
-}
-
-.navbar-inverse .navbar-brand {
-	color: #ddd;
-}
-
-.navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-	border: none;
-	background-color: transparent;
-}
-
-.navbar-collapse.collapsing, .navbar-collapse.collapse.in {
-	background-color: #222;
-}
-
-.jumbotron {
-	height: calc(50vh + 24vw - 80px);
-	margin-top: calc(50vh - 24vw);
-}
-
-.jumbotron:after {
-	top: 0px;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	z-index: 2;
-	content: "";
-}*/

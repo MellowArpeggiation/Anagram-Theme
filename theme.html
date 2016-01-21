@@ -228,19 +228,20 @@
 						<a class="nav-item nav-link" href="/submit">{SubmitLabel}</a>
 					{/block:SubmissionsEnabled}
 				</div>
+				{block:ShowAvatar}
+					<ul class="nav navbar-nav pull-xs-right hidden-sm-down avatar-container">
+						<li class="hidden-sm-down avatar-hint" style="width:128px"><img class="img-{AvatarShape} img-brand-md img-avatar" src="{PortraitURL-128}"></li>
+						<li class="hidden-xs-down hidden-md-up" style="width:64px"><img class="img-{AvatarShape} img-brand-sm img-avatar" src="{PortraitURL-64}"></li>
+						{block:Description}
+							<li class="hidden-sm"><span class="desc-box">{Description}</span></li>
+						{/block:Description}
+					</ul>
+				{/block:ShowAvatar}
 			</div>
 		</nav>
-		<!--
-					{block:ShowAvatar}
-						<ul class="nav navbar-nav navbar-right hidden-xs avatar-container">
-							<li class="hidden-sm avatar-hint" style="width:128px"><img class="img-{AvatarShape} img-brand-md img-avatar" src="{PortraitURL-128}"></li>
-							<li class="visible-sm" style="width:64px"><img class="img-{AvatarShape} img-brand-sm img-avatar" src="{PortraitURL-64}"></li>
-							{block:Description}
-							    <li class="hidden-sm"><span class="desc-box">{Description}</span></li>
-							{/block:Description}
-						</ul>
-					{/block:ShowAvatar}
-		-->
+		
+					
+		
 		
 		{block:IndexPage}
 		    <div class="bg"></div>
@@ -263,342 +264,120 @@
 		<div class="content-background">
     		<div class="container">
     			{block:posts}
+					{block:Title}
+						<a href="{Permalink}">{Title}</a>
+					{/block:Title}
+					{block:RebloggedFrom}
+						<span class="text-muted">
+							<i class="fa fa-retweet"></i> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a>
+						</span>
+					{/block:RebloggedFrom}
+
+				
     				{block:Text}
-    					<div class="featurette">
-    					    <a href="{Permalink}">
-        						<img class="featurette-image img-circle hidden-xs hidden-sm alternate-side accent-bg" src="https://placeholdit.imgix.net/~text?txtsize=120&w=500&h=500&bg=0000&txtshad=5&txtclr=ffffff&txt={PostType}"/>
-        						<img class="featurette-image img-circle visible-sm pull-right accent-bg" src="https://placeholdit.imgix.net/~text?txtsize=80&w=300&h=300&bg=0000&txtshad=5&txtclr=ffffff&txt={PostType}"/>
-    						</a>
-    						<div class="featurette-content">
-        						<h2 class="featurette-heading">
-        						    {block:Title}
-        						        <a href="{Permalink}">{Title}</a>
-        					        {/block:Title}
-        					        {block:RebloggedFrom}
-        					            <span class="text-muted">
-        					                <span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a>
-        				                </span>
-        				            {/block:RebloggedFrom}
-        			            </h2>
-        						<p>{Body}</p>
-        						{block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-        					</div>
-    					</div>
-    					
-    					<hr class="featurette-divider">
-    					
-    					{block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+						<p>{Body}</p>
     				{/block:Text}
     				
     				{block:Photo}
-                        <div class="featurette">
-                            {LinkOpenTag}
-                            	<img class="featurette-image hidden-xs hidden-sm alternate-side img-md img-square" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                            	<img class="featurette-image visible-sm photo-sm pull-right img-square" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                            	<img class="visible-xs img-xs" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                        	{LinkCloseTag}
-                        	
-                        	<div class="featurette-content">
-                            	{block:RebloggedFrom}
-                            		<h2 class="featurette-heading"><span class="text-muted"><span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a></span></h2>
-                            	{/block:RebloggedFrom}
-                            	
-                                {block:Caption}
-                                    <p>{Caption}</p>
-                                {/block:Caption}
-                                
-                                {block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-    						</div>
-                        </div>
-                        
-                        <hr class="featurette-divider">
-                        
-    					{block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+						{LinkOpenTag}
+							<img class="featurette-image hidden-xs hidden-sm alternate-side img-md img-square" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+							<img class="featurette-image visible-sm photo-sm pull-right img-square" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+							<img class="visible-xs img-xs" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+						{LinkCloseTag}
+						{block:Caption}
+							<p>{Caption}</p>
+						{/block:Caption}
                     {/block:Photo}
                     
                     {block:Panorama}
-                        <div class="featurette">
-                            {LinkOpenTag}
-                            	<img class="img-panorama" src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-                        	{LinkCloseTag}
-                        	
-                        	<div class="featurette-content">
-                            	{block:RebloggedFrom}
-                            		<h2 class="featurette-heading"><span class="text-muted"><span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a></span></h2>
-                            	{/block:RebloggedFrom}
-                            	
-                                {block:Caption}
-                                    <p>{Caption}</p>
-                                {/block:Caption}
-                                
-                                {block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-    						</div>
-                        </div>
-                        
-                        <hr class="featurette-divider">
-                        
-                        {block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+						{LinkOpenTag}
+							<img class="img-panorama" src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+						{LinkCloseTag}
+
+						{block:Caption}
+							<p>{Caption}</p>
+						{/block:Caption}
                     {/block:Panorama}
                     
                     {block:Photoset}
-                        <div class="featurette">
-                            <!--
-                        	<div class="featurette-image hidden-xs hidden-sm alternate-side photoset-md img-square">{Photoset-500}</div>
-                        	<div class="featurette-image visible-sm pull-right photoset-sm img-square">{Photoset-400}</div>
-                        	<div class="visible-xs text-center photoset-xs">{Photoset-250}</div>
-                        	-->
-                        	
                         	<div class="photoset alternate-side">{Photoset}</div>
-                        	
-                        	<div class="featurette-content">
-                            	{block:RebloggedFrom}
-                            		<h2 class="featurette-heading"><span class="text-muted"><span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a></span></h2>
-                            	{/block:RebloggedFrom}
                             	
-                                {block:Caption}
-                                    <p>{Caption}</p>
-                                {/block:Caption}
-                                
-                                {block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-    						</div>
-                        </div>
-                        
-                        <hr class="featurette-divider">
-                        
-                        {block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+							{block:Caption}
+								<p>{Caption}</p>
+							{/block:Caption}
                     {/block:Photoset}
                     
                     {block:Quote}
-                        <div class="featurette">
-                            <a href="{Permalink}">
-        						<img class="featurette-image img-circle hidden-xs hidden-sm alternate-side accent-bg" src="https://placeholdit.imgix.net/~text?txtsize=120&w=500&h=500&bg=0000&txtshad=5&txtclr=ffffff&txt={PostType}"/>
-        						<img class="featurette-image img-circle visible-sm pull-right accent-bg" src="https://placeholdit.imgix.net/~text?txtsize=80&w=300&h=300&bg=0000&txtshad=5&txtclr=ffffff&txt={PostType}"/>
-        					</a>
-    						<div class="featurette-content">
-        						<h2 class="featurette-heading quote-{Length}">
-                                    <a href="{Permalink}">"{Quote}"</a>
-                                    {block:RebloggedFrom}
-        					            <span class="text-muted">
-        					                <span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a>
-        				                </span>
-        				            {/block:RebloggedFrom}
-        			            </h2>
-        			            {block:Source}
-        						    <p> — {Source}</p>
-        						{/block:Source}
-        						
-        						{block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-        					</div>
-    					</div>
-    					
-    					<hr class="featurette-divider">
-    					
-    					{block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+						<h2 class="featurette-heading quote-{Length}">
+							<a href="{Permalink}">"{Quote}"</a>
+						</h2>
+						{block:Source}
+							<p> — {Source}</p>
+						{/block:Source}
                     {/block:Quote}
                     
                     {block:Link}
-                        <div class="featurette">
-                            <a href="{URL}" {Target}>
-        						<img class="featurette-image link img-circle hidden-xs hidden-sm alternate-side img-md accent-bg" {block:Thumbnail}src="{Thumbnail}"{/block:Thumbnail}/>
-        						<img class="featurette-image link img-circle visible-sm pull-right img-sm accent-bg" {block:Thumbnail}src="{Thumbnail}"{/block:Thumbnail}/>
-    						</a>
-    						<div class="featurette-content">
-        						<h2 class="featurette-heading">
-        						    <a href="{URL}" {Target}>{Name} <small class="visible-xs">Link</small></a>
-        					        {block:RebloggedFrom}
-        					            <span class="text-muted">
-        					                <span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a>
-        				                </span>
-        				            {/block:RebloggedFrom}
-        			            </h2>
-        			            {block:Description}
-        						    <p>{Description}</p>
-    						    {/block:Description}
-    						    
-    						    {block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-        					</div>
-    					</div>
-    					
-    					<hr class="featurette-divider">
-    					
-    					{block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+						<a href="{URL}" {Target}>
+							<img class="featurette-image link img-circle hidden-xs hidden-sm alternate-side img-md accent-bg" {block:Thumbnail}src="{Thumbnail}"{/block:Thumbnail}/>
+							<img class="featurette-image link img-circle visible-sm pull-right img-sm accent-bg" {block:Thumbnail}src="{Thumbnail}"{/block:Thumbnail}/>
+						</a>
+						<a href="{URL}" {Target}>{Name} <small class="visible-xs">Link</small></a>
+						{block:Description}
+							<p>{Description}</p>
+						{/block:Description}
                     {/block:Link}
                     
                     {block:Chat}
-                        <div class="featurette">
-                            <a href="{Permalink}">
-        						<img class="featurette-image img-circle hidden-xs hidden-sm alternate-side accent-bg" src="https://placeholdit.imgix.net/~text?txtsize=120&w=500&h=500&bg=0000&txtshad=5&txtclr=ffffff&txt={PostType}"/>
-        						<img class="featurette-image img-circle visible-sm pull-right accent-bg" src="https://placeholdit.imgix.net/~text?txtsize=80&w=300&h=300&bg=0000&txtshad=5&txtclr=ffffff&txt={PostType}"/>
-    						</a>
-    						<div class="featurette-content">
-        						<h2 class="featurette-heading">
-        						    {block:Title}
-        						        <a href="{Permalink}">{Title}</a>
-        					        {/block:Title}
-        					        {block:RebloggedFrom}
-        					            <span class="text-muted">
-        					                <span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a>
-        				                </span>
-        				            {/block:RebloggedFrom}
-        			            </h2>
-        						<div>
-        						    {block:Lines}
-                                        <p class="{alt}">{block:Label}{Label} {/block:Label}{Line}</p>
-                                    {/block:Lines}
-        						</div>
-        						
-        						{block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-        					</div>
-    					</div>
-    					
-    					<hr class="featurette-divider">
-    					
-    					{block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+						<a href="{Permalink}">
+							<img class="featurette-image img-circle hidden-xs hidden-sm alternate-side accent-bg" src="https://placeholdit.imgix.net/~text?txtsize=120&w=500&h=500&bg=0000&txtshad=5&txtclr=ffffff&txt={PostType}"/>
+							<img class="featurette-image img-circle visible-sm pull-right accent-bg" src="https://placeholdit.imgix.net/~text?txtsize=80&w=300&h=300&bg=0000&txtshad=5&txtclr=ffffff&txt={PostType}"/>
+						</a>
+						{block:Lines}
+							<p class="{alt}">{block:Label}{Label} {/block:Label}{Line}</p>
+						{/block:Lines}
                     {/block:Chat}
                     
                     {block:Video}
-                        <div class="featurette">
-                        	<div class="featurette-image hidden-xs hidden-sm alternate-side">{VideoEmbed-500}</div>
-                        	<div class="visible-sm pull-right text-center">{VideoEmbed-400}</div>
-                        	<div class="visible-xs text-center">{VideoEmbed-250}</div>
-                        	
-                        	<div class="featurette-content">
-                            	{block:RebloggedFrom}
-                            		<h2 class="featurette-heading"><span class="text-muted"><span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a></span></h2>
-                            	{/block:RebloggedFrom}
+						<div class="featurette-image hidden-xs hidden-sm alternate-side">{VideoEmbed-500}</div>
+						<div class="visible-sm pull-right text-center">{VideoEmbed-400}</div>
+						<div class="visible-xs text-center">{VideoEmbed-250}</div>
                             	
-                                {block:Caption}
-                                    <p>{Caption}</p>
-                                {/block:Caption}
-                                
-                                {block:PlayCount}
-                                    <p><small>{PlayCountWithLabel}</small></p>
-                                {/block:PlayCount}
-                                
-                                {block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-        					</div>
-                        </div>
-                        
-                        <hr class="featurette-divider">
-                        
-                        {block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+						{block:Caption}
+							<p>{Caption}</p>
+						{/block:Caption}
+
+						{block:PlayCount}
+							<p><small>{PlayCountWithLabel}</small></p>
+						{/block:PlayCount}
                     {/block:Video}
                     
                     {block:Audio}
-                        <div class="featurette">
-                            {block:AlbumArt}
-        					    <a href="{Permalink}">
-            						<img class="featurette-image img-circle img-md hidden-xs hidden-sm alternate-side" src="{AlbumArtURL}"/>
-            						<img class="featurette-image img-circle img-sm visible-sm pull-right" src="{AlbumArtURL}"/>
-        						</a>
-                            {/block:AlbumArt}
-    						<div class="featurette-content">
-        						<h2 class="featurette-heading">
-            						{block:TrackName}
-                                        <a href="{Permalink}">{TrackName}</a>
-                                    {/block:TrackName}
-        					        {block:RebloggedFrom}
-        					            <span class="text-muted">
-        					                <span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a>
-        				                </span>
-        				            {/block:RebloggedFrom}
-        			            </h2>
+						{block:AlbumArt}
+							<a href="{Permalink}">
+								<img class="featurette-image img-circle img-md hidden-xs hidden-sm alternate-side" src="{AlbumArtURL}"/>
+								<img class="featurette-image img-circle img-sm visible-sm pull-right" src="{AlbumArtURL}"/>
+							</a>
+						{/block:AlbumArt}
+    						
+						{block:TrackName}
+							<a href="{Permalink}">{TrackName}</a>
+						{/block:TrackName}
         			            
-        			            {block:AudioPlayer}
-        			                {AudioPlayerBlack}
-        			            {/block:AudioPlayer}
-        			            
-        			            {block:ExternalAudio}
-        			                <a href="{ExternalAudioURL}"><span class="glyphicon glyphicon-play"></span> Listen</a>
-        			            {/block:ExternalAudio}
-        			            
-        						{block:Caption}
-                                    <p>{Caption}</p>
-                                {/block:Caption}
-                                
-                                {block:PlayCount}
-                                    <p><small>{PlayCountWithLabel}</small></p>
-                                {/block:PlayCount}
-                                
-                                {block:Date}
-        			                <a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
-                                {/block:Date}
-        						{block:HasTags}
-        							<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
-        						{/block:HasTags}
-        					</div>
-    					</div>
-    					
-    					<hr class="featurette-divider">
-    					
-    					{block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
+						{block:AudioPlayer}
+							{AudioPlayerBlack}
+						{/block:AudioPlayer}
+
+						{block:ExternalAudio}
+							<a href="{ExternalAudioURL}"><span class="glyphicon glyphicon-play"></span> Listen</a>
+						{/block:ExternalAudio}
+
+						{block:Caption}
+							<p>{Caption}</p>
+						{/block:Caption}
+
+						{block:PlayCount}
+							<p><small>{PlayCountWithLabel}</small></p>
+						{/block:PlayCount}
                     {/block:Audio}
                     
                     {block:Answer}
@@ -615,7 +394,7 @@
         			            <h2 class="featurette-heading">
         			                {block:RebloggedFrom}
         					            <span class="text-muted">
-        					                <span class="glyphicon glyphicon-retweet"></span> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a>
+        					                <i class="fa fa-retweet"></i> <a href="{ReblogParentURL}"> <img src="{ReblogParentPortraitURL-24}"> {ReblogParentName}</a>
         				                </span>
         				            {/block:RebloggedFrom}
         			            </h2>
@@ -629,14 +408,21 @@
         						{/block:HasTags}
         					</div>
     					</div>
-    					
-    					<hr class="featurette-divider">
-    					
-    					{block:PostNotes}
-    					    <p class="text-center">{NoteCountWithLabel}</p>
-    					    <p class="text-center">{PostNotes-64}</p>
-    					{/block:PostNotes}
     				{/block:Answer}
+			
+					{block:Date}
+						<a href="{Permalink}"><em class="small">{block:NotReblog}Posted{/block:NotReblog}{block:RebloggedFrom}Reblogged{/block:RebloggedFrom} {TimeAgo}</em></a><br/>
+					{/block:Date}
+					{block:HasTags}
+						<small>Tags: {block:Tags}<a href="{TagURL}">#{Tag}</a>, {/block:Tags}</small>
+					{/block:HasTags}
+					
+					<hr class="featurette-divider">
+					
+					{block:PostNotes}
+						<p class="text-center">{NoteCountWithLabel}</p>
+						<p class="text-center">{PostNotes-64}</p>
+					{/block:PostNotes}
     			{/block:posts}
     			{block:Pagination}
                     <nav class="text-center">
